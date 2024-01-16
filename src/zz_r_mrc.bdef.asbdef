@@ -1,0 +1,95 @@
+managed;
+strict ( 2 );
+with draft;
+define behavior for ZZ_R_MRC //alias <alias_name>
+implementation in class zbp_z_r_mrc  unique
+persistent table ZZMRC
+draft table ZZMRC_D
+etag master LocalLastChanged
+lock master total etag LastChangedAt
+authorization master ( global )
+
+{
+
+  field( readonly )
+    mrcuuid,
+    LastChangedAt,
+    LastChangedBy,
+    LocalLastChanged;
+
+  field ( numbering : managed )
+   mrcuuid;
+
+  field ( readonly : update )
+    MRCCode;
+
+  create ( precheck );
+  update;
+  delete;
+  association _mrc_build { create; with draft; }
+
+  draft action Edit;
+  draft action Activate  optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+
+  validation validateMRCCode   on save { field MRCCode; create; }
+  mapping for zzmrc {
+  CreatedAt = created_at;
+  CreatedBy = created_by;
+  Description = description;
+  FFFRelated = fff_related;
+  IsTemporary =is_temporary;
+  LastChangedAt = last_changed_at;
+  LastChangedBy = last_changed_by;
+  LocalLastChanged = local_last_changed;
+  LongDescription = long_description;
+  MRCCode = mrc_code;
+  mrcuuid = mrc_uuid;
+  ModeCode = mode_code;
+  MultipleIterations = multiple_iterations;
+
+  }
+}
+
+define behavior for ZZ_R_MRCBUILD
+implementation in class zbp_r_zzmrcbuild unique
+persistent table zzmrc_build
+lock dependent by _mrc
+authorization dependent by _mrc
+draft table zzmrc_buildd
+etag master LocalLastChanged
+
+{
+field ( readonly )
+  mrcuuid,
+
+  MRCBuildUUID,
+  LocalLastChanged;
+
+  field ( numbering : managed )
+  MRCBuildUUID;
+
+  update;
+  delete;
+  association _mrc { with draft; }
+
+  determination calculateTravelID   on save   { create; }
+
+  mapping for zzmrc_build {
+   CreatedAt = created_at;
+   CreatedBy = created_by;
+   LastChangedBy = last_changed_by;
+   LastChangedAt = last_changed_at;
+   LocalLastChanged = local_last_changed;
+   Sequence = line_item;
+   IsTemporary = is_temporary;
+   MRCBuildUUID = mrc_build_uuid;
+   mrcuuid = mrc_uuid;
+   MRCCode = mrc_code;
+   ReplyTableUUID = reply_table_uuid;
+   ReplyTable = replytable;
+  }
+}

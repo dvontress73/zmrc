@@ -1,0 +1,7 @@
+@EndUserText.label: 'Service Definition for Reply Table'
+define service ZZ_SD_ReplyTable {
+  expose ZZ_C_ReplyTable as ReplyTable;
+  expose ZZ_C_ReplyCode  as ReplyCode;
+  expose ZZ_C1_MRCBUILD  as MRCBuild;
+  expose ZZ_C_MRC        as MRC;
+}

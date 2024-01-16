@@ -1,0 +1,115 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'ZZREPLYTABLE_R', 
+    typeNamePlural: 'ZZREPLYTABLE_Rs', 
+    title: {
+      type: #STANDARD, 
+      label: 'ZZREPLYTABLE_R', 
+      value: 'Replytable'
+    }
+  }, 
+  presentationVariant: [ {
+    sortOrder: [ {
+      by: 'Replytable', 
+      direction: #DESC
+    } ], 
+    visualizations: [ {
+      type: #AS_LINEITEM
+    } ]
+  } ]
+}
+annotate view ZC_ZZREPLYTABLE_RTP with
+{
+  @UI.facet: [ {
+    id: 'idCollection', 
+    type: #COLLECTION, 
+    label: 'ZZREPLYTABLE_R', 
+    position: 10 
+  }, 
+  {
+    id: 'idIdentification', 
+    parentId: 'idCollection', 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'General Information', 
+    position: 20 
+  }, 
+  {
+    id: 'idZZREPLYCODE_R', 
+    type: #LINEITEM_REFERENCE, 
+    label: 'ZZREPLYCODE_R', 
+    position: 30 , 
+    targetElement: '_ZZREPLYCODE_R'
+  } ]
+  @UI.hidden: true
+  ReplytableUUID;
+  
+  @UI.lineItem: [ {
+    position: 20 , 
+    importance: #HIGH, 
+    label: 'Replytable'
+  } ]
+  @UI.identification: [ {
+    position: 20 , 
+    label: 'Replytable'
+  } ]
+  @UI.selectionField: [ {
+    position: 20 
+  } ]
+  Replytable;
+  
+  @UI.lineItem: [ {
+    position: 30 , 
+    importance: #HIGH, 
+    label: 'Replycodesize'
+  } ]
+  @UI.identification: [ {
+    position: 30 , 
+    label: 'Replycodesize'
+  } ]
+  Replycodesize;
+  
+  @UI.lineItem: [ {
+    position: 40 , 
+    importance: #HIGH
+  } ]
+  @UI.identification: [ {
+    position: 40 
+  } ]
+  Isac;
+  
+  @UI.lineItem: [ {
+    position: 50 , 
+    importance: #HIGH, 
+    label: 'Description'
+  } ]
+  @UI.identification: [ {
+    position: 50 , 
+    label: 'Description'
+  } ]
+  Description;
+  
+  @UI.lineItem: [ {
+    position: 60 , 
+    importance: #HIGH
+  } ]
+  @UI.identification: [ {
+    position: 60 
+  } ]
+  Istemporary;
+  
+  @UI.hidden: true
+  CreatedBy;
+  
+  @UI.hidden: true
+  CreatedAt;
+  
+  @UI.hidden: true
+  LastChangedAt;
+  
+  @UI.hidden: true
+  LastChangedBy;
+  
+  @UI.hidden: true
+  LocalLastChanged;
+}

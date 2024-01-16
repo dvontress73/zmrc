@@ -1,0 +1,129 @@
+managed implementation in class zbp_z_r_replytable unique;
+strict ( 2 );
+
+with draft;
+
+define behavior for ZZ_R_ReplyTable
+persistent table zzreplytable
+with additional save
+draft table zzreplytabled
+etag master LocalLastChanged
+lock master total etag LastChangedAt
+authorization master ( global )
+//etag master <field_name>
+{
+  field ( readonly )
+   ReplytableUUID,
+   LastChangedAt,
+   LastChangedBy,
+   LocalLastChanged;
+
+  field ( numbering : managed )
+   ReplytableUUID;
+
+   field ( readonly : update )
+   ReplyTable;
+
+
+  create ( precheck );
+  update ( precheck );
+  delete;
+  association _replycode { create( precheck ); with draft; }
+  association _mrc_build { create; with draft; }
+
+  action  assignMRC result [1] $self;
+
+  validation checkReplyTable on save  { create ;}
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+ mapping for zzreplytable {
+      ReplyTableUUID = replytable_uuid;
+      Description = description;
+      ISACRelevant = isac;
+      IsTemporary = istemporary;
+      ReplyCodeSize = replycodesize;
+      CreatedAt = created_at;
+      CreatedBy = created_by;
+      LastChangedAt = last_changed_at;
+      LastChangedBy = last_changed_by;
+      LocalLastChanged = local_last_changed;
+      ReplyTable = replytable;
+ }
+}
+
+define behavior for ZZ_R_ReplyCode
+persistent table zzreplycode
+lock dependent by _replyTable
+authorization dependent by _replyTable
+draft table zzreplycoded
+etag master LocalLastChanged
+
+{
+field ( readonly )
+  ReplyCodeUUID,
+  ReplyTableUUID,
+  LocalLastChanged;
+
+  field ( numbering : managed )
+  ReplyCodeUUID;
+
+  field (readonly : update)
+  ReplyCode;
+
+  update ( precheck );
+  delete;
+  association _replyTable { with draft; }
+
+  mapping for zzreplycode {
+   CreatedAt = created_at;
+   CreatedBy = created_by;
+   LastChangedBy = last_changed_by;
+   LastChangedAt = last_changed_at;
+   LocalLastChanged = local_last_changed;
+   ReplyCodeUUID = reply_code_uuid;
+   ReplyTableUUID = reply_table_uuid;
+   Description = description;
+   ReplyCode = reply_code;
+   IsTemporary = is_temporary;
+  }
+}
+
+
+define behavior for ZZ_R1_MRCBUILD
+persistent table zzmrc_build
+lock dependent by _replyTable
+authorization dependent by _replyTable
+draft table zzmrcbuildd1
+etag master LocalLastChanged
+
+{
+field ( readonly )
+  MRCBuildUUID,
+  ReplyTableUUID,
+  LocalLastChanged;
+
+  field ( numbering : managed )
+  MRCBuildUUID;
+
+  update;
+  delete;
+  association _replyTable { with draft; }
+
+  mapping for zzmrc_build {
+   CreatedAt = created_at;
+   CreatedBy = created_by;
+   LastChangedBy = last_changed_by;
+   LastChangedAt = last_changed_at;
+   LocalLastChanged = local_last_changed;
+   Sequence = line_item;
+   IsTemporary = is_temporary;
+   MRCBuildUUID = mrc_build_uuid;
+   mrcuuid = mrc_uuid;
+   ReplyTableUUID = reply_table_uuid;
+  }
+}

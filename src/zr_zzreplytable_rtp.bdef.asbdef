@@ -1,0 +1,93 @@
+managed;
+strict ( 2 );
+with draft;
+
+define behavior for ZR_ZZREPLYTABLE_RTP alias ZZREPLYTABLE_R
+implementation in class ZBP_R_ZZREPLYTABLE_RTP unique
+persistent table ZZREPLYTABLE
+draft table ZZZREPLYTABLE00D
+etag master LocalLastChanged
+lock master total etag LastChangedAt
+authorization master( global )
+
+{
+  field ( readonly )
+   Replytable,
+   CreatedBy,
+   CreatedAt,
+   LastChangedAt,
+   LastChangedBy,
+   LocalLastChanged;
+
+  field ( numbering : managed )
+   ReplytableUUID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZZREPLYTABLE
+  {
+    ReplytableUUID = REPLYTABLE_UUID;
+    Replytable = REPLYTABLE;
+    Replycodesize = REPLYCODESIZE;
+    Isac = ISAC;
+    Description = DESCRIPTION;
+    Istemporary = ISTEMPORARY;
+    CreatedBy = CREATED_BY;
+    CreatedAt = CREATED_AT;
+    LastChangedAt = LAST_CHANGED_AT;
+    LastChangedBy = LAST_CHANGED_BY;
+    LocalLastChanged = LOCAL_LAST_CHANGED;
+  }
+
+  association _ZZREPLYCODE_R { create; with draft; }
+
+  determination CalculateReplytable on save { create; }
+}
+
+define behavior for ZR_ZZREPLYCODE_R01TP alias ZZREPLYCODE_R
+implementation in class ZBP_R_ZZREPLYCODE_R01TP unique
+persistent table ZZREPLYCODE
+draft table ZZZREPLYCODE_00D
+etag master LocalLastChanged
+lock dependent by _ZZREPLYTABLE_R
+authorization dependent by _ZZREPLYTABLE_R
+
+{
+  field ( readonly )
+   ReplyTableUUID,
+   LocalLastChanged;
+
+  field ( numbering : managed )
+   ReplyCodeUUID;
+
+
+  update;
+  delete;
+
+  mapping for ZZREPLYCODE
+  {
+    ReplyCodeUUID = REPLY_CODE_UUID;
+    ReplyTableUUID = REPLY_TABLE_UUID;
+    ReplyCode = REPLY_CODE;
+    Description = DESCRIPTION;
+    IsTemporary = IS_TEMPORARY;
+    CreatedBy = CREATED_BY;
+    CreatedAt = CREATED_AT;
+    LastChangedAt = LAST_CHANGED_AT;
+    LastChangedBy = LAST_CHANGED_BY;
+    LocalLastChanged = LOCAL_LAST_CHANGED;
+  }
+
+  association _ZZREPLYTABLE_R { with draft; }
+
+  determination CalculateReplyCodeUUID on save { create; }
+}

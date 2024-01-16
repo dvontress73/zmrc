@@ -1,0 +1,9 @@
+CLASS zbp_r_zzmrcbuild DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zz_r_mrc.
+protected section.
+private section.
+ENDCLASS.
+
+
+
+CLASS ZBP_R_ZZMRCBUILD IMPLEMENTATION.
+ENDCLASS.

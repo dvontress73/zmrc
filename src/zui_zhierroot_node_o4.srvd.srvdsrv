@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition for ZC_ZHIERROOT_NODE'
+define service ZUI_ZHIERROOT_NODE_O4 {
+  expose ZC_ZHIERROOT_NODE as Root;
+}

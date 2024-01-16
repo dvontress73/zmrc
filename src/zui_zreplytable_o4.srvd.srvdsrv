@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition for ZC_ZREPLYTABLE'
+define service ZUI_ZREPLYTABLE_O4 {
+  expose ZC_ZREPLYTABLE as ReplyTable;
+}

@@ -1,0 +1,7 @@
+@EndUserText.label: 'Service Definition for MRC'
+define service ZZ_SD_MRC {
+  expose ZZ_C_MRC        as MRC;
+  expose ZZ_C_MRCBUILD   as MRCBuild;
+  expose ZZ_R_ReplyTable as ReplyTable;
+  expose ZZ_R_ReplyCode  as ReplyCode;
+}

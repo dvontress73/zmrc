@@ -1,0 +1,98 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'ReplyTable', 
+    typeNamePlural: 'ReplyTables'
+  }
+}
+annotate view ZC_ZREPLYTABLE with
+{
+  @UI.facet: [ {
+    id: 'idIdentification', 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'ReplyTable', 
+    position: 10 
+  } ]
+  @UI.hidden: true
+  ReplytableUUID;
+  
+  @UI.lineItem: [ {
+    position: 10 , 
+    importance: #MEDIUM, 
+    label: 'Replytable'
+  } ]
+  @UI.identification: [ {
+    position: 10 , 
+    label: 'Replytable'
+  } ]
+  Replytable;
+  
+  @UI.lineItem: [ {
+    position: 20 , 
+    importance: #MEDIUM, 
+    label: 'Replycodesize'
+  } ]
+  @UI.identification: [ {
+    position: 20 , 
+    label: 'Replycodesize'
+  } ]
+  Replycodesize;
+  
+  @UI.lineItem: [ {
+    position: 30 , 
+    importance: #MEDIUM, 
+    label: ''
+  } ]
+  @UI.identification: [ {
+    position: 30 , 
+    label: ''
+  } ]
+  Isac;
+  
+  @UI.lineItem: [ {
+    position: 40 , 
+    importance: #MEDIUM, 
+    label: 'Description'
+  } ]
+  @UI.identification: [ {
+    position: 40 , 
+    label: 'Description'
+  } ]
+  Description;
+  
+  @UI.lineItem: [ {
+    position: 50 , 
+    importance: #MEDIUM, 
+    label: ''
+  } ]
+  @UI.identification: [ {
+    position: 50 , 
+    label: ''
+  } ]
+  Istemporary;
+  
+  @UI.lineItem: [ {
+    position: 60 , 
+    importance: #MEDIUM, 
+    label: ''
+  } ]
+  @UI.identification: [ {
+    position: 60 , 
+    label: ''
+  } ]
+  CreatedBy;
+  
+  @UI.lineItem: [ {
+    position: 70 , 
+    importance: #MEDIUM, 
+    label: ''
+  } ]
+  @UI.identification: [ {
+    position: 70 , 
+    label: ''
+  } ]
+  CreatedAt;
+  
+  @UI.hidden: true
+  LocalLastChanged;
+}

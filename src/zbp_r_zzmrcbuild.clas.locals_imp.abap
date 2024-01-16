@@ -1,0 +1,14 @@
+CLASS lhc_ZZ_R_MRCBUILD DEFINITION INHERITING FROM cl_abap_behavior_handler.
+  PRIVATE SECTION.
+
+    METHODS calculateTravelID FOR DETERMINE ON SAVE
+      IMPORTING keys FOR zz_r_mrcbuild~calculateTravelID.
+
+ENDCLASS.
+
+CLASS lhc_ZZ_R_MRCBUILD IMPLEMENTATION.
+
+  METHOD calculateTravelID.
+  ENDMETHOD.
+
+ENDCLASS.

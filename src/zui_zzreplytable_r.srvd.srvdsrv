@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZC_ZZREPLYTABLE_RTP'
+define service ZUI_ZZREPLYTABLE_R {
+  expose ZC_ZZREPLYTABLE_RTP as ZZREPLYTABLE_R;
+  expose ZC_ZZREPLYCODE_R01TP as ZZREPLYCODE_R;
+}
