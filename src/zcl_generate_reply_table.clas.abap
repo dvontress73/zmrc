@@ -35,7 +35,7 @@ CLASS zcl_generate_reply_table IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
-    "clear the data
+    "clear the data to ensure clean reload
     DELETE FROM zzmrc.
     DELETE FROM zzreplytable.
     DELETE FROM zzreplycode.
