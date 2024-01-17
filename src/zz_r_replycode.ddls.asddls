@@ -8,6 +8,7 @@ association to parent ZZ_R_ReplyTable as _replyTable
     reply_table_uuid as ReplyTableUUID,
     reply_code as ReplyCode,
     description as Description,
+    long_description as LongText,
     is_temporary as IsTemporary,
     @Semantics.user.createdBy: true
     created_by as CreatedBy,

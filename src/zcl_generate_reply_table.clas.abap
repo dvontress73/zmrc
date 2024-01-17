@@ -24,9 +24,9 @@ CLASS zcl_generate_reply_table DEFINITION
       fill_replytable,
       fill_replycode
         IMPORTING
-          replytable_data       TYPE ty_replytable.
-        "RETURNING
-        "  VALUE(replycode_data) TYPE ty_replycode.
+          replytable_data TYPE ty_replytable.
+    "RETURNING
+    "  VALUE(replycode_data) TYPE ty_replycode.
 ENDCLASS.
 
 
@@ -35,10 +35,20 @@ CLASS zcl_generate_reply_table IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
-   "clear the data
+    "clear the data
     DELETE FROM zzmrc.
     DELETE FROM zzreplytable.
     DELETE FROM zzreplycode.
+    DELETE FROM zzmrc_build.
+    DELETE FROM zzmrcbuildd1.
+    DELETE FROM zzmrc_buildd.
+    DELETE FROM zzreplytable_d.
+    DELETE FROM zzzreplycode_00d.
+    DELETE FROM zzzreplytable00d.
+    DELETE FROM zzreplycoded.
+    DELETE FROM zzreplytabled.
+    DELETE FROM zzreplytable_d.
+    DELETE FROM zzmrc_d.
 
     fill_replytable(  ).
     INSERT zzreplytable FROM TABLE @t_replytable.
@@ -69,7 +79,7 @@ CLASS zcl_generate_reply_table IMPLEMENTATION.
                     long_description = 'The Chemical compound or mechanical...'
                     multiple_iterations = 'X'
                     fff_related = 'X'
-                    mode_code = ''
+                    mode_code = 'D'
                     is_temporary = ''
                     created_by = sy-uname
                     created_at = timestamp
@@ -111,7 +121,7 @@ CLASS zcl_generate_reply_table IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD fill_replycode.
-DATA(replytable_tab) = t_replytable.
+    DATA(replytable_tab) = t_replytable.
     DATA wa_code TYPE zzreplycode.
     DATA: lv_uuid    TYPE sysuuid_x16.
 
@@ -292,13 +302,13 @@ DATA(replytable_tab) = t_replytable.
       wa_code-description = to_upper( 'aluminum' ).
       APPEND wa_code TO t_replycode.
 
-       "ID = alb000
+      "ID = alb000
       wa_code-reply_code_uuid = zcl_get_uuid_x16=>generate_uuid_x16(  ).
       wa_code-reply_code = to_upper( 'alb000' ).
       wa_code-description = to_upper( 'aluminum alloy' ).
       APPEND wa_code TO t_replycode.
 
-       "ID = AL1350
+      "ID = AL1350
       wa_code-reply_code_uuid = zcl_get_uuid_x16=>generate_uuid_x16(  ).
       wa_code-reply_code = to_upper( 'al1350' ).
       wa_code-description = to_upper( 'aluminum alloy 1350' ).
@@ -330,7 +340,7 @@ DATA(replytable_tab) = t_replytable.
       wa_code-description = to_upper( 'steel comp 316' ).
       APPEND wa_code TO t_replycode.
 
-      endif.
+    ENDIF.
   ENDMETHOD.
 
   METHOD fill_replytable.

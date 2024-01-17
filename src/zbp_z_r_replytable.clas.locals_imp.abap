@@ -46,6 +46,7 @@ CLASS lhc_ZZ_R_ReplyTable IMPLEMENTATION.
 
 
   METHOD assignMRC.
+    exit.
   ENDMETHOD.
 
   METHOD precheck_create.

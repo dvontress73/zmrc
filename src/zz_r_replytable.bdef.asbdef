@@ -88,6 +88,7 @@ field ( readonly )
    ReplyCodeUUID = reply_code_uuid;
    ReplyTableUUID = reply_table_uuid;
    Description = description;
+   LongText = long_description;
    ReplyCode = reply_code;
    IsTemporary = is_temporary;
   }

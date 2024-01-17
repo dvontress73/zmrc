@@ -25,8 +25,6 @@ annotate view ZZ_C_ReplyTable with
 {
 
 
-
-
   @UI.facet: [
 
   {
@@ -50,7 +48,7 @@ annotate view ZZ_C_ReplyTable with
     position: 30 ,
     targetElement: '_mrc_build'
   }
-  
+
 
 
   ]
@@ -66,13 +64,10 @@ annotate view ZZ_C_ReplyTable with
   @UI.lineItem: [ {
     position: 20 ,
     importance: #HIGH
-  },
-  {  type: #FOR_ACTION, dataAction: 'assignMRC', label: 'Assign MRC'   }
+  } //,
+  //{  type: #FOR_ACTION, dataAction: 'assignMRC', label: 'Assign MRC'   }
 
   ]
-
-
-
   @UI.identification: [ {
     position: 20 ,
     label: 'Reply Table'
@@ -80,7 +75,10 @@ annotate view ZZ_C_ReplyTable with
   @UI.selectionField: [ {
     position: 20
   } ]
-  @EndUserText.label: 'Reply Table Name'
+  @EndUserText.label: 'ReplyTable'
+  @Search: {defaultSearchElement: true,
+      fuzzinessThreshold: 0.8
+      }
   ReplyTable;
 
   @UI.lineItem: [ {
@@ -104,17 +102,15 @@ annotate view ZZ_C_ReplyTable with
   @EndUserText.label: 'Reply Code Size'
   ReplyCodeSize;
 
-
-
   @UI.lineItem: [ {
     position: 50 ,
     importance: #HIGH,
     label: 'ISAC Relevant'
   } ]
   @UI.identification: [ {
-position: 40,
-label: 'ISAC Relevant'
-} ]
+  position: 40,
+  label: 'ISAC Relevant'
+  } ]
   @EndUserText.label: 'ISACRelevant'
   ISACRelevant;
 
@@ -124,18 +120,15 @@ label: 'ISAC Relevant'
   label: 'Is Temporary'
   } ]
   @UI.identification: [ {
-position: 40,
-label: 'Is Temporary'
-} ]
+  position: 40,
+  label: 'Is Temporary'
+  } ]
   @EndUserText.label: 'Is Temporary'
   IsTemporary;
 
 
   @UI.hidden: true
   LocalLastChanged;
-
-
-
 
   @UI.identification: [ {
   position: 50,
@@ -151,15 +144,4 @@ label: 'Is Temporary'
   } ]
   @EndUserText.label: 'Created At'
   CreatedAt;
-
-
-
-
-
-
-
-
-
-
-
 }

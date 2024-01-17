@@ -59,8 +59,8 @@ annotate view ZZ_C_MRC with
     position: 20 ,
     importance: #HIGH
   }
-//  ,
-//  {  type: #FOR_ACTION, dataAction: 'assignMRC', label: 'Assign MRC'   }
+ // ,
+ // {  type: #FOR_ACTION, dataAction: 'Create Replytable', label: 'Create Replytable'   }
 
   ]
 
@@ -74,6 +74,9 @@ annotate view ZZ_C_MRC with
     position: 20
   } ]
   @EndUserText.label: 'MRC Code'
+  @Search: {defaultSearchElement: true,
+      fuzzinessThreshold: 0.8
+      }
   MRCCode;
 
   @UI.lineItem: [ {

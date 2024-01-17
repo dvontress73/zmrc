@@ -25,10 +25,6 @@
 
 }
 
-
-
-
-
 annotate view ZZ_C_ReplyCode with
 {
   @UI.facet: [ {
@@ -55,9 +51,21 @@ annotate view ZZ_C_ReplyCode with
     label: 'Description'
   } ]
   @UI.identification: [ {
-    position: 40
+    position: 40,
+    label: 'Description'
   } ]
   Description;
+  
+/*   @UI.lineItem: [ {
+    position: 50 ,
+    importance: #HIGH,
+    label: 'Long Description'
+  } ]
+  @UI.identification: [ {
+    position: 50,
+    label: 'Long Description'
+  } ]
+  LongText; */
 
 //  @UI.lineItem: [ {
 //    position: 50 ,
@@ -74,31 +82,34 @@ annotate view ZZ_C_ReplyCode with
 //  criticality;
 
   @UI.lineItem: [ {
-    position: 50 ,
+    position: 60 ,
     importance: #HIGH,
     label: 'Is Temporary'
   } ]
   @UI.identification: [ {
-    position: 50
+    position: 60,
+    label: 'Temporary Value'
   } ]
   IsTemporary;
 
   @UI.lineItem: [ {
-    position: 60 ,
+    position: 70 ,
     importance: #HIGH
   } ]
   @UI.identification: [ {
-    position: 60
+    position: 70,
+    label: 'Created By'
+    
   } ]
   CreatedBy;
   
   
     @UI.lineItem: [ {
-    position: 70 ,
+    position: 80 ,
     importance: #HIGH
   } ]
   @UI.identification: [ {
-    position: 70
+    position: 80
   } ]
   CreatedAt;
 

@@ -7,7 +7,7 @@ define view entity ZZ_C1_MRCBUILD
 {
   key MRCBuildUUID,
       Sequence,
-      @Consumption.valueHelpDefinition: [{ entity: { name: 'ZZ_R_MRC', element: 'MRCUUID'} }]
+      @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_MRC_VH', element: 'MrcUuid'} }]
       @ObjectModel.text.element: ['MRCCode']
       MRCUUID,
       @Search.defaultSearchElement: true

@@ -9,6 +9,7 @@ define view entity ZZ_C_ReplyCode as projection on ZZ_R_ReplyCode
     @Search.defaultSearchElement: true
     ReplyCode,
     Description,
+    LongText,
     IsTemporary,
     CreatedBy,
     CreatedAt,
