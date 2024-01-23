@@ -20,8 +20,8 @@ authorization master ( global )
   field ( numbering : managed )
    mrcuuid;
 
-  field ( readonly : update )
-    MRCCode;
+//  field ( readonly : update )  //ted comment out
+//    MRCCode;
 
   create ( precheck );
   update;

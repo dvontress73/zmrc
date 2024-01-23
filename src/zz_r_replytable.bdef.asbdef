@@ -21,8 +21,8 @@ authorization master ( global )
   field ( numbering : managed )
    ReplytableUUID;
 
-   field ( readonly : update )
-   ReplyTable;
+//   field ( readonly : update )  //ted commented out
+//   ReplyTable;
 
 
   create ( precheck );
@@ -31,7 +31,7 @@ authorization master ( global )
   association _replycode { create( precheck ); with draft; }
   association _mrc_build { create; with draft; }
 
-  action  assignMRC result [1] $self;
+  action assignMRC parameter ZA_ASSIGN_MRC result [1] $self;
 
   validation checkReplyTable on save  { create ;}
 

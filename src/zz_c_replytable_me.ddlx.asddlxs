@@ -64,14 +64,16 @@ annotate view ZZ_C_ReplyTable with
   @UI.lineItem: [ {
     position: 20 ,
     importance: #HIGH
-  } //,
-  //{  type: #FOR_ACTION, dataAction: 'assignMRC', label: 'Assign MRC'   }
+  },
+  {  type: #FOR_ACTION, dataAction: 'assignMRC', label: 'Assign MRC'   }
 
   ]
   @UI.identification: [ {
     position: 20 ,
     label: 'Reply Table'
-  } ]
+  },
+  {  type: #FOR_ACTION, dataAction: 'assignMRC', label: 'Assign MRC'   }
+   ]
   @UI.selectionField: [ {
     position: 20
   } ]
