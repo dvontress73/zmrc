@@ -5,10 +5,11 @@ use draft;
 define behavior for ZZ_C_ReplyTable
 use etag
 {
-  use create;
+  //use create;
   use update;
   use delete;
-  use action assignMRC;
+  //use action assignMRC;
+  use action createReplytable;
 
   use action Edit;
   use action Activate;
@@ -35,6 +36,7 @@ use etag
 {
   use update;
   use delete;
+  use action relateMRC;
 
   use association _replyTable { with draft; }
 	

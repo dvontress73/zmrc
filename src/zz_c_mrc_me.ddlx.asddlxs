@@ -47,35 +47,31 @@ annotate view ZZ_C_MRC with
 
   ]
 
-
-
   @UI.hidden: true
   MRCUUID;
-
-
 
 
   @UI.lineItem: [ {
     position: 20 ,
     importance: #HIGH
-  }
- // ,
- // {  type: #FOR_ACTION, dataAction: 'Create Replytable', label: 'Create Replytable'   }
+  },
+  {  type: #FOR_ACTION, dataAction: 'createMRC', label: 'Create MRC'   }
 
   ]
-
-
 
   @UI.identification: [ {
     position: 20 ,
     label: 'MRC Code'
-  } ]
+  }//,
+  //{  type: #FOR_ACTION, dataAction: 'createMRC', label: 'Create MRC'   }
+   ]
   @UI.selectionField: [ {
     position: 20
   } ]
   @EndUserText.label: 'MRC Code'
   @Search: {defaultSearchElement: true,
-      fuzzinessThreshold: 0.8
+      fuzzinessThreshold: 0.85,
+      ranking: #HIGH
       }
   MRCCode;
 
@@ -88,7 +84,7 @@ annotate view ZZ_C_MRC with
     label: 'Description'
   } ]
   Description;
-  
+
   @UI.identification: [ {
     position: 40,
     label: 'Long Description'
@@ -104,7 +100,7 @@ annotate view ZZ_C_MRC with
   label: 'Form/Fit/Function Related'
   } ]
   @EndUserText.label: 'Form/Fit/Function Related'
- FFFRelated;
+  FFFRelated;
 
 
 
@@ -114,9 +110,9 @@ annotate view ZZ_C_MRC with
     label: 'Mode Code'
   } ]
   @UI.identification: [ {
-position: 60,
-label: 'Mode Code'
-} ]
+  position: 60,
+  label: 'Mode Code'
+  } ]
   @EndUserText.label: 'Mode Code'
   ModeCode;
 
@@ -126,23 +122,23 @@ label: 'Mode Code'
   label: 'Is Temporary'
   } ]
   @UI.identification: [ {
-position: 70,
-label: 'Is Temporary'
-} ]
+  position: 70,
+  label: 'Is Temporary'
+  } ]
   @EndUserText.label: 'Is Temporary'
   IsTemporary;
-  
-    @UI.lineItem: [ {
+
+  @UI.lineItem: [ {
   position: 80 ,
   importance: #HIGH,
   label: 'Multiple Iterations'
   } ]
   @UI.identification: [ {
-position: 80,
-label: 'Multiple Iterations'
-} ]
+  position: 80,
+  label: 'Multiple Iterations'
+  } ]
   @EndUserText.label: 'Multiple Iterations'
- MultipleIterations;
+  MultipleIterations;
 
 
   @UI.hidden: true

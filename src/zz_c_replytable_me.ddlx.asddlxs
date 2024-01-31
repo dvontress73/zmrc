@@ -63,21 +63,23 @@ annotate view ZZ_C_ReplyTable with
 
   @UI.lineItem: [ {
     position: 20 ,
-    importance: #HIGH
+    importance: #HIGH,
+    label: 'Reply Table'
   },
-  {  type: #FOR_ACTION, dataAction: 'assignMRC', label: 'Assign MRC'   }
+  //{  type: #FOR_ACTION, dataAction: 'assignMRC', label: 'Assign MRC'   }
+  {  type: #FOR_ACTION, dataAction: 'createReplytable', label: 'Create Reply Table'   }
 
   ]
   @UI.identification: [ {
     position: 20 ,
     label: 'Reply Table'
-  },
-  {  type: #FOR_ACTION, dataAction: 'assignMRC', label: 'Assign MRC'   }
+  }//,
+   // {  type: #FOR_ACTION, dataAction: 'assignMRC', label: 'Assign MRC'   }
    ]
   @UI.selectionField: [ {
     position: 20
   } ]
-  @EndUserText.label: 'ReplyTable'
+  @EndUserText.label: 'Reply Table'
   @Search: {defaultSearchElement: true,
       fuzzinessThreshold: 0.8
       }
@@ -113,19 +115,19 @@ annotate view ZZ_C_ReplyTable with
   position: 40,
   label: 'ISAC Relevant'
   } ]
-  @EndUserText.label: 'ISACRelevant'
+  @EndUserText.label: 'ISAC Relevant'
   ISACRelevant;
 
   @UI.lineItem: [ {
   position: 60 ,
   importance: #HIGH,
-  label: 'Is Temporary'
+  label: 'Temporary Reply Table'
   } ]
   @UI.identification: [ {
   position: 40,
-  label: 'Is Temporary'
+  label: 'Temporary Reply Table'
   } ]
-  @EndUserText.label: 'Is Temporary'
+  @EndUserText.label: 'Temporary Reply Table'
   IsTemporary;
 
 

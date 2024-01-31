@@ -36,9 +36,15 @@ annotate view ZZ_C1_MRCBUILD with
   @EndUserText.label: 'MRC Build UUID'
   MRCBuildUUID;
 
-  
-  @UI.lineItem: [ { position: 30 ,importance: #HIGH } ]
-  @UI.identification: [ { position: 30} ]
+
+
+  @UI.lineItem: [ {
+   position: 30 ,importance: #HIGH },
+   { type: #FOR_ACTION, dataAction: 'relateMRC', label: 'Assign MRC' }
+    ]
+  @UI.identification: [ { position: 30},
+  {  type: #FOR_ACTION, dataAction: 'relateMRC', label: 'Assign MRC'   }
+   ]
   @EndUserText.label: 'MRC ID'
   MRCUUID;
 
@@ -47,26 +53,26 @@ annotate view ZZ_C1_MRCBUILD with
   @EndUserText.label: 'Sequence'
   Sequence;
 
-  @UI.hidden: true 
+  @UI.hidden: true
   ReplyTableUUID;
 
   @UI.lineItem: [ { position: 40 ,importance: #HIGH } ]
   @UI.identification: [ { position: 40} ]
   @EndUserText.label: 'Is Temporary'
   IsTemporary;
-  
+
 
   @UI.identification: [ {
     position: 50
   } ]
   @EndUserText.label: 'Created By'
   CreatedBy;
-  
+
 
   @UI.identification: [ {
     position: 60
   } ]
-   @EndUserText.label: 'Created At'
+  @EndUserText.label: 'Created At'
   CreatedAt;
 
   @UI.identification: [ {
@@ -74,12 +80,12 @@ annotate view ZZ_C1_MRCBUILD with
   } ]
   @EndUserText.label: 'Changed By'
   LastChangedBy;
-  
+
 
   @UI.identification: [ {
     position: 80
   } ]
-   @EndUserText.label: 'Changed At'
+  @EndUserText.label: 'Changed At'
   LastChangedAt;
 
   @UI.hidden: true

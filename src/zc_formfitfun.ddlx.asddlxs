@@ -1,0 +1,50 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Form_Fit_Function', 
+    typeNamePlural: 'Form_Fit_Functions'
+  }
+}
+annotate view ZC_FORMFITFUN with
+{
+  @UI.facet: [ {
+    id: 'idIdentification', 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Form_Fit_Function', 
+    position: 10 
+  } ]
+  @UI.hidden: true
+  FffUUID;
+  
+  @UI.lineItem: [ {
+    position: 10 , 
+    importance: #MEDIUM, 
+    label: 'FffName'
+  } ]
+  @UI.identification: [ {
+    position: 10 , 
+    label: 'FffName'
+  } ]
+  FffName;
+  
+  @UI.lineItem: [ {
+    position: 20 , 
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 20 
+  } ]
+  CreatedBy;
+  
+  @UI.lineItem: [ {
+    position: 30 , 
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 30 
+  } ]
+  CreatedAt;
+  
+  @UI.hidden: true
+  LocalLastChanged;
+}

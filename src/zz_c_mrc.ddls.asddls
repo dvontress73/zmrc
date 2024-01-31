@@ -6,11 +6,16 @@ define root view entity ZZ_C_MRC
   provider contract transactional_query
   as projection on ZZ_R_MRC
 {
-  key MRCUUID,      
+  key MRCUUID,
+      @Search.defaultSearchElement: true
+      @Search.fuzzinessThreshold: 0.85
+      @Search.ranking: #HIGH
+      @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_MRC_VH', element: 'MrcUuid'} }]
+      @ObjectModel.text.element: ['MRCCode']
       MRCCode,
       Description,
       LongDescription,
-      MultipleIterations,
+      MultipleIterations,      
       FFFRelated,
       ModeCode,
       IsTemporary,

@@ -1,7 +1,7 @@
 managed;
 strict ( 2 );
 with draft;
-define behavior for ZZ_R_MRC //alias <alias_name>
+define behavior for ZZ_R_MRC alias MRC
 implementation in class zbp_z_r_mrc  unique
 persistent table ZZMRC
 draft table ZZMRC_D
@@ -20,11 +20,11 @@ authorization master ( global )
   field ( numbering : managed )
    mrcuuid;
 
-//  field ( readonly : update )  //ted comment out
-//    MRCCode;
+  field ( readonly : update )
+    MRCCode;
 
   create ( precheck );
-  update;
+  update ( precheck );
   delete;
   association _mrc_build { create; with draft; }
 
@@ -33,6 +33,8 @@ authorization master ( global )
   draft action Discard;
   draft action Resume;
   draft determine action Prepare;
+  //Custom action to create MRC
+  static action createMRC parameter ZA_MRC_PARAM_NEW_MRC result [1] $self;
 
 
   validation validateMRCCode   on save { field MRCCode; create; }
@@ -54,7 +56,7 @@ authorization master ( global )
   }
 }
 
-define behavior for ZZ_R_MRCBUILD
+define behavior for ZZ_R_MRCBUILD alias Build
 implementation in class zbp_r_zzmrcbuild unique
 persistent table zzmrc_build
 lock dependent by _mrc

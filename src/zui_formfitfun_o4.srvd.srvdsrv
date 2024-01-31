@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition for ZC_FORMFITFUN'
+define service ZUI_FORMFITFUN_O4 {
+  expose ZC_FORMFITFUN as Form_Fit_Function;
+}
