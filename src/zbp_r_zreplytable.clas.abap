@@ -1,7 +1,5 @@
 class ZBP_R_ZREPLYTABLE definition
   public
-  abstract
-  final
   for behavior of ZR_ZREPLYTABLE .
 
 public section.

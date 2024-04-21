@@ -1,4 +1,8 @@
-CLASS zbp_z_r_replytable DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zz_r_replytable.
+class ZBP_Z_R_REPLYTABLE definition
+  public
+  for behavior of ZZ_R_REPLYTABLE .
+
+public section.
 protected section.
 private section.
 ENDCLASS.
