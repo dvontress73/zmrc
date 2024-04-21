@@ -1,7 +1,5 @@
 class ZBP_R_ZHIERROOT_NODE definition
   public
-  abstract
-  final
   for behavior of ZR_ZHIERROOT_NODE .
 
 public section.

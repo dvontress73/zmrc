@@ -1,20 +1,13 @@
-CLASS zcl_dvt_playground DEFINITION
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCL_DVT_PLAYGROUND definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-
-    INTERFACES if_oo_adt_classrun .
-  PROTECTED SECTION.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
 
 
-CLASS zcl_dvt_playground IMPLEMENTATION.
-
-
-  METHOD if_oo_adt_classrun~main.
-  ENDMETHOD.
+CLASS ZCL_DVT_PLAYGROUND IMPLEMENTATION.
 ENDCLASS.
