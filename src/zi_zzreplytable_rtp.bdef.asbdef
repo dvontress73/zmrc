@@ -1,29 +1,25 @@
-interface;
-use draft;
+unmanaged implementation in class zbp_i_zzreplytable_rtp unique;
+//strict ( 1 ); //Uncomment this line in order to enable strict mode 1. The strict mode is prerequisite to be future proof regarding syntax and to be able to release your BO.
 
-define behavior for ZI_ZZREPLYTABLE_RTP alias ZZREPLYTABLE_R
-use etag
-
+define behavior for ZI_ZZREPLYTABLE_RTP //alias <alias_name>
+//late numbering
+lock master
+authorization master ( instance )
+//etag master <field_name>
 {
-  use create;
-  use update;
-  use delete;
-
-  use action Edit;
-  use action Activate;
-  use action Discard;
-  use action Resume;
-  use action Prepare;
-
-  use association _ZZREPLYCODE_R { create; with draft; }
+  create;
+  update;
+  delete;
+  association _ZZREPLYCODE_R { create; }
 }
 
-define behavior for ZI_ZZREPLYCODE_R01TP alias ZZREPLYCODE_R
-use etag
-
+define behavior for ZI_ZZREPLYCODE_R01TP //alias <alias_name>
+//late numbering
+//lock dependent by <association>
+//authorization dependent by <association>
+//etag master <field_name>
 {
-  use update;
-  use delete;
-
-  use association _ZZREPLYTABLE_R { with draft; }
+  update;
+  delete;
+  association _ZZREPLYTABLE_R;
 }
